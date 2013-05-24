@@ -1,0 +1,27 @@
+{
+  "name": "vnc-over-gif",
+  "version": "0.0.1",
+  "description": "vnc over gif server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sidorares/vnc-over-gif.git"
+  },
+  "bin": {
+    "vnc-over-gif": "./vnc-over-gif.js"
+  },
+  "keywords": [
+    "vnc",
+    "gif"
+  ],
+  "author": "Andrey Sidorov <sidorares@yandex.ru>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "rfb2": "0.0.4",
+    "gif": "git+ssh://git@github.com:sidorares/node-gif.git#gif-stream"
+  }
+}
