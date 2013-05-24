@@ -1,6 +1,6 @@
 {
   "name": "vnc-over-gif",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vnc over gif server",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "rfb2": "0.0.4",
-    "gif": "git+ssh://git@github.com:sidorares/node-gif.git#gif-stream"
+    "gif": "2.0.2"
   }
 }
