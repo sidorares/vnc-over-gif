@@ -4,6 +4,12 @@ vnc-over-gif
 Serves screen updates as animated gif over http.
 Based on [node-gif](https://github.com/pkrumins/node-gif) by Peteris Krumins and [node-rfb2](https://github.com/sidorares/node-rfb2)
 
+## Requirements
+
+  - running vnc server
+  - node 0.8 (see [#2](https://github.com/sidorares/vnc-over-gif/issues/2)
+  - netscape 2.0+
+
 ## Installation
 
     npm install -g vnc-over-gif
