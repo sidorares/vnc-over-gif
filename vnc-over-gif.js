@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var GifLib = require('gif');
 //var rfb = require('./vnc/rfbclient');
 var rfb = require('rfb2');

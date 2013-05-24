@@ -12,7 +12,7 @@ Based on [node-gif](https://github.com/pkrumins/node-gif) by Peteris Krumins and
 
 start server:
 
-    > PORT=4455 vnc-over gif
+    $> PORT=4455 vnc-over-gif
 
 open url in the browser - [http://localhost:4455/screen.gif?host=localhost&port=5900&password=secret](http://localhost:4455/screen.gif?host=localhost&port=5900&password=secret)
 
