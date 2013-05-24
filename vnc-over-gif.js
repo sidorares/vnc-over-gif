@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var GifLib = require('gif');
-//var rfb = require('./vnc/rfbclient');
 var rfb = require('rfb2');
 var url = require('url');
 
@@ -30,7 +29,7 @@ http.createServer(function(req, res) {
         rgb[offset++] = rect.buffer[i+1];
         rgb[offset++] = rect.buffer[i];
       }
-      gif.push(rgb, rect.x, rect.y, rect.width, rect.height, 'rgb');
+      gif.push(rgb, rect.x, rect.y, rect.width, rect.height);
       gif.endPush();
 
       // send on vnc disconnect?
