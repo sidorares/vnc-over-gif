@@ -21,7 +21,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "rfb2": "0.0.4",
+    "rfb2": "0.0.6",
     "gif": "git+ssh://git@github.com:sidorares/node-gif.git#gif-stream"
   }
 }
