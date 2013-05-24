@@ -7,7 +7,7 @@ Based on [node-gif](https://github.com/pkrumins/node-gif) by Peteris Krumins and
 ## Requirements
 
   - running vnc server
-  - node 0.8 (see [#2](https://github.com/sidorares/vnc-over-gif/issues/2)
+  - node 0.8 (see [issue #2](https://github.com/sidorares/vnc-over-gif/issues/2))
   - netscape 2.0+
 
 ## Installation
