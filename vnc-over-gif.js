@@ -39,7 +39,13 @@ http.createServer(function(req, res) {
     r.on('error', function(err) {
       console.error(err);
       res.writeHead(502, { 'Content-Type': 'text/plain'});
-      res.end(err);
+      if (typeof(err) == 'string') {
+        res.end(err);
+      } else if (err instanceof Error) {
+        res.end(err.message);
+      } else {
+        res.end('unknown error:' + JSON.stringify(err));
+      }
     });
 
   } else {
