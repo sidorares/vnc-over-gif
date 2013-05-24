@@ -18,6 +18,8 @@ open url in the browser - [http://localhost:4455/screen.gif?host=localhost&port=
 
 ## Links
 
+[HN discussion](https://news.ycombinator.com/item?id=5763183)
+
 https://twitter.com/tmm1/status/336810488631554049
 
 https://github.com/videlalvaro/gifsockets
