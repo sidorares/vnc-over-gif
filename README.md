@@ -26,8 +26,10 @@ open url in the browser - [http://localhost:4455/screen.gif?host=localhost&port=
 
 [HN discussion](https://news.ycombinator.com/item?id=5763183)
 
+Inspired by this tweet:
+
 https://twitter.com/tmm1/status/336810488631554049
 
-https://github.com/videlalvaro/gifsockets
+[Animated gif as data transport](https://github.com/videlalvaro/gifsockets)
 
-http://www.matthewflickinger.com/lab/whatsinagif/animation_and_transparency.asp
+[Animated gif binary format](http://www.matthewflickinger.com/lab/whatsinagif/animation_and_transparency.asp)
