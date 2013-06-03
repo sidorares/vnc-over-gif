@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-// NOTE: gif module currently doesn't install, so I've removed it from the package.json
-//    See workaround: https://github.com/sidorares/vnc-over-gif/issues/5
-//var GifLib = require('gif');
-var GifLib = require('/path-to-manually-compiled/node-gif/build/Release/obj.target/gif.node');
-
+var GifLib = require('gif');
+// NOTE: gif module currently doesn't install, see workaround: https://github.com/sidorares/vnc-over-gif/issues/5
+//var GifLib = require('/path-to-manually-compiled/node-gif/build/Release/obj.target/gif.node');
 var rfb = require('rfb2');
 var url = require('url');
 var http = require('http');
