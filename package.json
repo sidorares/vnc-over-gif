@@ -25,6 +25,8 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "rfb2": "0.0.7",
-    "gif": "2.0.2"
+    "gif": "2.0.2",
+    "swig": "0.13.5",
+    "formidable": "1.0.14"
   }
 }
