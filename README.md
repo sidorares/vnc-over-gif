@@ -22,11 +22,11 @@ start server:
 
 open url in the browser - [http://localhost:4455/screen.gif?host=localhost&port=5900&password=secret](http://localhost:4455/screen.gif?host=localhost&port=5900&password=secret)
 
-### Interactivity
+## Interactivity
 
-Keyboard and mouse interactivity is supported.  To use, load the js.html file instead, like so:
+Preliminary support has been added for keyboard and mouse interactivity.  To use, load the **js.html** file instead, like so:
 
-[http://localhost:4455/**js.html**?host=localhost&port=5900&password=secret](http://localhost:4455/js.html?host=localhost&port=5900&password=secret)
+[http://localhost:4455/js.html?host=localhost&port=5900&password=secret](http://localhost:4455/js.html?host=localhost&port=5900&password=secret)
 
 * requires Javascript
 * events (including keystrokes) are sent to the remove server only when the mouse cursor is over the GIF image (otherwise they're sent to the browser).
