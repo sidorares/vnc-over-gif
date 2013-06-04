@@ -11,6 +11,9 @@
         var buttonStateBitset = 0
         var overGif           = false;
         var coords            = null;
+        var updateQueue       = [];
+        var sending           = false;
+
 
         // US Keyboard layout mapping (will need to change for non-us layouts)
         // [jscode, rfbcode, shift]
@@ -153,14 +156,39 @@
           return { x: pageX - offset.left, y: pageY - offset.top };
         };
 
-        // TODO: think about using:
-        //  - a synchronous queue for keyboard events (dont want to loose these or process out-of-order)
-        //  - debounced mouse events (ie: limit to 1 every x milliseconds, and drop everything in-between)
-        var postMouseUpdate = function(x, y, buttonState) {
-          $.post('/update', { event: 'mouse', x: x, y: y, buttonState: buttonState });
+        var createMouseUpdate = function(x, y, buttonState) {
+          return { event: 'mouse', x: x, y: y, buttonState: buttonState };
         };
-        var postKeyboardUpdate = function(rfbCode, isDown) {
-          $.post('/update', { event: 'keyboard', keyCode: rfbCode, isDown: isDown });
+
+        var createKeyboardUpdate = function(rfbCode, isDown) {
+          return { event: 'keyboard', keyCode: rfbCode, isDown: isDown };
+        };
+
+        var enqueueUpdate = function(update) {
+          updateQueue.push(update);
+          pumpQueue();
+        };
+
+        var pumpQueue = function() {
+          if (!sending && updateQueue.length > 0) {
+            sendUpdates();
+          }
+        };
+
+        var sendUpdates = function(updates) {
+          var data    = updateQueue;
+          updateQueue = [];
+          sending     = true;
+          $.ajax({ 
+            type:        'POST', 
+            url:         '/update',
+            contentType: 'application/json', 
+            data:        JSON.stringify(data),
+            complete:    function() {
+              sending = false;
+              pumpQueue();
+            }
+          });
         };
 
         // KEYBOARD
@@ -179,7 +207,7 @@
             if (overGif) {
               var rfbKey = toRfbKeycode(e.keyCode, e.shiftKey);
               if (rfbKey) {
-                postKeyboardUpdate(rfbKey, 1);
+                enqueueUpdate(createKeyboardUpdate(rfbKey, 1));
               } else {
                 console.log("dropping unrecognised keycode '"+e.keyCode+"'");
               }
@@ -190,7 +218,7 @@
             if (overGif) {
               var rfbKey = toRfbKeycode(e.keyCode, e.shiftKey);
               if (rfbKey) {
-                postKeyboardUpdate(rfbKey, 0);
+                enqueueUpdate(createKeyboardUpdate(rfbKey, 0));
               } else {
                 console.log("dropping unrecognised keycode '"+e.keyCode+"'");
               }
@@ -220,16 +248,16 @@
           .on('mousedown', function(e) { 
             coords = getMouseCoords(this, e.pageX, e.pageY);
             buttonStateBitset |= 1 << (e.which-1); // set bit corresponding to mouse button 
-            postMouseUpdate(coords.x, coords.y, buttonStateBitset);
+            enqueueUpdate(createMouseUpdate(coords.x, coords.y, buttonStateBitset));
           })
           .on('mouseup', function(e) { 
             coords = getMouseCoords(this, e.pageX, e.pageY);
             buttonStateBitset &= ~(1 << (e.which-1)); // clear bit corresponding to mouse button
-            postMouseUpdate(coords.x, coords.y, buttonStateBitset);
+            enqueueUpdate(createMouseUpdate(coords.x, coords.y, buttonStateBitset));
           })
           .on('mousemove', function(e) {
             coords = getMouseCoords(this, e.pageX, e.pageY);
-            postMouseUpdate(coords.x, coords.y, buttonStateBitset);
+            enqueueUpdate(createMouseUpdate(coords.x, coords.y, buttonStateBitset));
           })
           .on('mouseenter', function(e) {
             overGif = true;
