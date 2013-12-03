@@ -47,3 +47,5 @@ Inspired by [this tweet](https://twitter.com/tmm1/status/336810488631554049)
 [Animated gif binary format](http://www.matthewflickinger.com/lab/whatsinagif/animation_and_transparency.asp)
 
 JS-only gif encoding libraries: [gif.js](https://github.com/jnordberg/gif.js), [omggif](https://github.com/deanm/omggif)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sidorares/vnc-over-gif/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
