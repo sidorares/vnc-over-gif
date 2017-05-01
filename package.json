@@ -24,9 +24,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "rfb2": "0.0.7",
+    "rfb2": "0.2.0",
     "gif": "2.0.2",
-    "swig": "0.13.5",
-    "cookie": "0.1.0"
+    "swig": "1.4.2",
+    "cookie": "0.3.1"
   }
 }
