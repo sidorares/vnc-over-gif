@@ -1,6 +1,8 @@
 vnc-over-gif
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sidorares/vnc-over-gif.svg)](https://greenkeeper.io/)
+
 Serves screen updates as animated gif over http.
 Based on [node-gif](https://github.com/pkrumins/node-gif) by Peteris Krumins and [node-rfb2](https://github.com/sidorares/node-rfb2)
 
